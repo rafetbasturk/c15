@@ -1,16 +1,9 @@
-function toggleTheme() {
-    let dot = document.getElementById("dot");
+let usedStorage = parseInt(document.getElementById("usage").innerText, 10);
+let totalStorage = 1000;
+let usagePercentage = ((usedStorage / totalStorage) * 100).toFixed(2) + "%" ;
 
-    if (dot.style.float == "right"){
-        dot.style.float = "left";
-    } else{
-        dot.style.float = "right";
-    };
+document.getElementById("inside-bar").style.width = usagePercentage;
 
-    
-    if (document.documentElement.className === "theme-dark") {
-        document.documentElement.className = "theme-light";
-    } else {
-        document.documentElement.className = "theme-dark";
-    };
-};
+let leftSpace = 1000 - usedStorage;
+
+document.getElementById("left-space").firstElementChild.innerText = leftSpace;
