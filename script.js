@@ -1,9 +1,22 @@
-let usedStorage = parseInt(document.getElementById("usage").innerText, 10);
-let totalStorage = 1000;
-let usagePercentage = ((usedStorage / totalStorage) * 100).toFixed(2) + "%" ;
+function toggleTheme() {
+    let dot = document.getElementById("dot");
+    let text = document.getElementById("toggle-text");
 
-document.getElementById("inside-bar").style.width = usagePercentage;
+    if (dot.style.float == "right"){
+        dot.style.float = "left";
+    } else{
+        dot.style.float = "right";
+    };
 
-let leftSpace = 1000 - usedStorage;
+    if (text.innerText == "Dark Mode"){
+        text.innerText = "Light Mode";
+    } else {
+        text.innerText = "Dark Mode";
+    }
 
-document.getElementById("left-space").firstElementChild.innerText = leftSpace;
+    if (document.documentElement.className === "theme-dark") {
+        document.documentElement.className = "theme-light";
+    } else {
+        document.documentElement.className = "theme-dark";
+    };
+};
